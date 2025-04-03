@@ -1,0 +1,130 @@
+---
+import  { basic } from '../../cv.json';
+import WorldMap from './icons/WorldMap.astro'
+import Mail from './icons/Mail.astro'
+import Phone from './icons/Phone.astro'
+import GitHub from './icons/Github.astro';
+import LinkedIn from './icons/LinkedIn.astro'
+
+const {name, label, summary, email, phone, location, profiles} = basic
+
+const  {city, region} = location
+
+const SOCIAL_ICONS: Record<string, string | any> = {
+    "GitHub": GitHub,
+    "LinkedIn": LinkedIn,
+}
+---
+
+<section class="font-mono pt-16 flex justify-center items-start flex-col overflow-hidden" id="about">
+    <h1 class="title-name text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#9D59EF] to-[#F8DB9C] bg-clip-text text-transparent transition-all duration-500">{name}</h1>
+    <h3 class="opacity-60 text-sm sm:text-lg transition-all duration-500">{label}</h3>
+    <span class="flex items-center text-sm sm:text-lg  gap-2 opacity-35 transition-all duration-500"><WorldMap/> {city}, {region}</span>
+    <footer class="flex gap-2 overflow-hidden">
+        {
+            email && (
+            <a 
+                href="#email-form" 
+                title={`Send an email to ${name} at ${email}`}
+                rel="noopener noreferrer"
+                class="p-3 rounded-md bg-[#232344] border-[1px] border-transparent hover:bg-[#121222] transition-all hover:border-[#fffa] duration-500 opacity-0">
+                <Mail/>
+            </a>)
+        }
+        {
+            phone && (
+            <a 
+                href={`tel:${phone}`} 
+                title={`Call ${name} at ${phone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-3 rounded-md bg-[#232344] border-[1px] border-transparent  hover:bg-[#121222] transition-all hover:border-[#fffa] duration-500 opacity-0">
+                <Phone/>
+            </a>)
+        }
+        {
+            profiles.map(({network, url, username}) => {
+                const Icon = SOCIAL_ICONS[network]
+                return(
+                    <a 
+                        href={url} 
+                        title={`Visit ${name} on ${network}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="p-3 rounded-md bg-[#232344] border-[1px] border-transparent  hover:bg-[#121222] transition-all hover:border-[#fffa] duration-500 opacity-0">
+                        <Icon/>
+                    </a>
+                )
+            })
+        }
+    </footer>
+    <article class="mt-4 font-mono">
+        <h4 class="text-xl sm:text-2xl font-bold">About Me</h4>
+        <p class="mt-2 text-sm sm:text-lg">
+            {summary}
+        </p>
+    </article>
+</section>
+
+
+<style>
+    .title-name {
+        animation: fadeIn 2s;
+    }
+
+    h3,span {
+        animation: appear 1.8s;
+    }
+
+    a {
+        animation: showUpY 1.6s forwards;
+    }
+
+    a:nth-child(1){
+        animation-delay: 0.5s;
+    }
+    a:nth-child(2){
+        animation-delay: 1s;
+    }
+    a:nth-child(3){
+        animation-delay: 1.5s;
+    }
+    a:nth-child(4){
+        animation-delay: 2s;
+    }
+
+    @keyframes appear {
+        from {
+            transform: translateX(1000px);
+            scale: 0;
+        }
+        to {
+            scale: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            transform: translateX(-500px);
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    p {
+        animation: showUpY 1.4s;
+        transition: all 0.5s;
+    }
+
+    @keyframes showUpY {
+        from {
+            transform: translateY(70px);
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
