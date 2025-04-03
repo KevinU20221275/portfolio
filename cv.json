@@ -1,0 +1,244 @@
+{
+    "basic": {
+        "name": "Kevin Antonio Montano",
+        "label": "Technical Student in Software Development",
+        "image": "/me.webp",
+        "email": "2022kevinmontano@gmail.com",
+        "phone": "7873-4316",
+        "summary": "I am a technical student in software development with more than 2 years of learning focused on building digital solutions. I am currently looking for my first professional job while I conclude my degree next year. I am passionate about continuing to learn and put my skills into practice to contribute to the success of real projects.",
+        "location": {
+            "address": "",
+            "postalCode": "03403",
+            "city": "Berlin, Usulután",
+            "countryCode": "ES",
+            "region": "El Salvador"
+        },
+        "profiles": [
+            {
+                "network": "LinkedIn",
+                "username": "kevin-montano",
+                "url": "https://www.linkedin.com/in/kevin-montano/"
+            },
+            {
+                "network": "GitHub",
+                "username": "kevinmontano",
+                "url": "https://github.com/KevinU20221275"
+            }
+        ],
+        "education": [
+            {
+                "institution": "Universidad de Oriente (UNIVO)",
+                "degree": "Technical baccalaureate option accountant",
+                "major": "Technical in Software Development",
+                "graduationYear": "in progress",
+                "courses": [
+                    {
+                        "name": "JavaScript Algorithms and Data Structures",
+                        "institution": "freeCodeCamp",
+                        "url": "https://www.freecodecamp.org/certification/fcc04d850a7-4684-4601-9510-77a7304ce3c9/javascript-algorithms-and-data-structures-v8"
+                    },
+                    {
+                        "name": "Front End Development Libraries",
+                        "institution": "freeCodeCamp",
+                        "url": "https://www.freecodecamp.org/certification/fcc04d850a7-4684-4601-9510-77a7304ce3c9/front-end-development-libraries"
+                    },
+                    {
+                        "name": "Data Visualization",
+                        "institution": "freeCodeCamp",
+                        "url": "https://www.freecodecamp.org/certification/fcc04d850a7-4684-4601-9510-77a7304ce3c9/data-visualization"
+                    },
+                    {
+                        "name": "Azure Fundamentals",
+                        "institution": "Microsoft Learn",
+                        "url": "https://1drv.ms/b/s!AuenveZDlzw8dU4oCaEOfTITSOk?e=Iv3IbZ"
+                    },
+                    {
+                        "name": "Azure Security",
+                        "institution": "Microsoft Learn",
+                        "url": "https://1drv.ms/b/s!AuenveZDlzw8c5Z_vaZ9HAdjNpw?e=3CEa81"
+                    },
+                    {
+                        "name": "Azure Data Fundamentals",
+                        "institution": "Microsoft Learn",
+                        "url": "https://1drv.ms/b/s!AuenveZDlzw8dIZsSzFP59NXH9Y?e=nk9A8v"
+                    },
+                    {
+                        "name": "Power Platform Fundamentals",
+                        "institution": "Microsoft Learn",
+                        "url": "https://1drv.ms/b/s!AuenveZDlzw8d0cmNuSgD4_28jM?e=aJFNcO"
+                    }
+                ]
+            }
+        ],
+        "achievements": [
+            {
+                "name": "Microsoft Azure AI Fundamentals (AI-900)",
+                "type": "Certification",
+                "img": "azureImg",
+                "linkToCredly": "https://www.credly.com/badges/ed04a07e-00f8-45de-8e52-02cd7cc0a122/public_url"
+            },
+            {
+                "name": "Getting Started with Databases",
+                "type": "Learning Achievement",
+                "img": "awsGettinDataBaseImg",
+                "linkToCredly": "https://www.credly.com/badges/ad70c048-c335-49cc-856e-ea1f449572d9/public_url"
+            },
+            {
+                "name": "Getting Started with Storage",
+                "type": "Learning Achievement",
+                "img": "awsGettinStorageImg",
+                "linkToCredly": "https://www.credly.com/badges/ea4d2d2d-ad81-47ce-a6ff-dcbd815f6298/public_url"
+            },
+            {
+                "name": "Cloud Computing 101",
+                "type": "Learning Achievement",
+                "img": "awsCloudComputingImg",
+                "linkToCredly" : "https://www.credly.com/badges/acb700b2-44af-450b-afeb-ffc7d966e88b/public_url"
+            }
+        ],
+        "skills": [
+            {
+                "name": "HTML",
+                "level": "Intermediate"
+            },
+            {
+                "name": "CSS",
+                "level": "Intermediate"
+            },
+            {
+                "name": "Bootstrap",
+                "level": "Intermediate"
+            },
+            {
+                "name": "Tailwind",
+                "level": "Intermediate"
+            },
+            {
+                "name": "JavaScript",
+                "level": "Intermediate"
+            },
+            {
+                "name": "PHP",
+                "level": "Intermediate"
+            },
+            {
+                "name": "TypeScript",
+                "level": "Beginner"
+            },
+            {
+                "name": "Python",
+                "level": "Beginner"
+            },
+            {
+                "name": "CSharp",
+                "level": "Beginner"
+            },
+            {
+                "name": "MySQL",
+                "level": "Intermediate"
+            },
+            {
+                "name": "SQLServer",
+                "level": "Intermediate"
+            },
+            {
+                "name": "MongoDB",
+                "level": "Beginner"
+            },
+            {
+                "name": "SQLite",
+                "level": "Beginner"
+            },
+            {
+                "name": "Git",
+                "level": "Intermediate"
+            },
+            {
+                "name": "GitHub",
+                "level": "Intermediate"
+            },
+            {
+                "name": "React",
+                "level": "Intermediate"
+            },
+            {
+                "name": "AspDotNet",
+                "level": "Beginner"
+            },
+            {
+                "name": "ExpressJs",
+                "level": "Beginner"
+            },
+            {
+                "name": "NodeJs",
+                "level": "Beginner"
+            }
+        ],
+        "languages": [
+            {
+                "language": "Spanish",
+                "fluency": "Native"
+            },
+            {
+                "language": "English",
+                "fluency": "Intermediate"
+            }
+        ],
+        "projects": [
+            {
+                "name": "Memory Game",
+                "description": "This is a card matching game developed with React",
+                "url": "https://luminous-valkyrie-e7fb3d.netlify.app/",
+                "github":"https://github.com/KevinU20221275/memory-game",
+                "img": "/img/memoryGame.png",
+                "keywords": [
+                    "React",
+                    "Tailwind",
+                    "JavaScript"
+                ]
+            },
+            {
+                "name":"Hangman Game",
+                "description" : "This is a hangman game developed with React, designed to challenge your word guessing skills while trying to avoid losing.",
+                "url" : "https://venerable-youtiao-860438.netlify.app/",
+                "github": "https://github.com/KevinU20221275/hangman-game",
+                "img": "/img/hangmanGame.png",
+                "keywords": [
+                    "React",
+                    "Tailwind",
+                    "JavaScript"
+                ]
+            },
+            {
+                "name":"To Do App",
+                "description" : "This is a simple yet powerful To-Do application built with Next.js and TypeScript. It features user authentication, CRUD operations for task management, and a responsive UI with Tailwind CSS. The app is deployed on Vercel and uses Neon as the database provider.",
+                "url" : "https://to-do-app-three-khaki.vercel.app/",
+                "github": "https://github.com/KevinU20221275/ToDoApp",
+                "img": "/img/to_do_app.png",
+                "keywords": [
+                    "Next.js",
+                    "NextAuth.js",
+                    "TypeScript",
+                    "PostgreSQL (Neon DB)",
+                    "Tailwind"
+                ]
+            },
+            {
+                "name":"Hangman Game",
+                "description" : "This project is a music playlist management application built with Astro and React. It features a simulated API, global state management with Zustand, and various performance optimizations using React hooks. The project is styled using Tailwind CSS.",
+                "url" : "https://spotify-clone-kevin-montano.vercel.app/",
+                "github": "https://github.com/KevinU20221275/spotify-clone",
+                "img":"/img/spotify-clone.png",
+                "keywords": [
+                    "Astro",
+                    "React",
+                    "JavaScript",
+                    "TypeScript",
+                    "Zustand",
+                    "Tailwind"
+                ]
+            }
+        ]
+            
+    }
+}
