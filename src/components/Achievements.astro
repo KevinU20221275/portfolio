@@ -1,0 +1,36 @@
+---
+import  { basic } from '../../cv.json';
+import azureImg from '../assets/certifications/microsoft-certified-azure-ai-fundamentals.png'
+import awsGettinDataBaseImg from '../assets/certifications/aws-educate-getting-started-with-databases.png'
+import awsGettinStorageImg from '../assets/certifications/aws-educate-getting-started-with-storage.png'
+import awsCloudComputingImg from '../assets/certifications/aws-educate-introduction-to-cloud-101.png'
+import Badge from './Badge.astro'
+
+const images: Record<string, any>  = {
+    "azureImg": azureImg,
+    "awsGettinDataBaseImg" : awsGettinDataBaseImg,
+    "awsGettinStorageImg":awsGettinStorageImg,
+    "awsCloudComputingImg":awsCloudComputingImg
+}
+
+const { achievements : badges } = basic;
+---
+
+<section class="w-full text-center mt-6">
+    <h2 class="text-xl my-2 font-bold">My Achievements</h2>
+    <div class="flex flex-wrap gap-2 justify-center items-center overflow-hidden">
+        {
+            badges.map((badge, index) => (
+               
+                <Badge
+                    badgeClass={`badge-${index}`}
+                    imgSrc={images[badge.img]}
+                    badgeName={badge.name}
+                    badgeType={badge.type}
+                    href={badge.linkToCredly}
+                />
+            ))
+        }
+    </div>
+</section>
+
