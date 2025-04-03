@@ -1,0 +1,128 @@
+---
+import  { basic } from '../../cv.json';
+import Html from './icons/Html.astro';
+import Css from './icons/Css.astro';
+import JavaScript from './icons/JavaScript.astro';
+import React from './icons/React.astro';
+import NodeJs from './icons/Node.astro';
+import ExpressJs from './icons/Express.astro';
+import MongoDb from './icons/MongoDB.astro';
+import Git from './icons/Git.astro';
+import GitHubSkill from './icons/GitHubSkill.astro';
+import Tailwind from './icons/Tailwind.astro';
+import Bootstrap from './icons/Bootstrap.astro';
+import Php from './icons/Php.astro';
+import MySql from './icons/MySql.astro';
+import Python from './icons/Python.astro';
+import Csharp from './icons/Csharp.astro';
+import SqLite from './icons/SqLite.astro';
+import AspDotNet from './icons/AspDotNet.astro';
+import SqlServer from './icons/SqlServer.astro';
+import TypeScript from './icons/TypeScript.astro';
+import Sql from './icons/Sql.astro';
+
+
+const { skills } = basic
+
+const SKILLS_ICONS : Record<string, any> = {
+    "HTML": Html,
+    "CSS": Css,
+    "JavaScript": JavaScript,
+    "TypeScript": TypeScript,
+    "React": React,
+    "NodeJs": NodeJs,
+    "ExpressJs": ExpressJs,
+    "MongoDB": MongoDb,
+    "Git": Git,
+    "GitHub": GitHubSkill,
+    "Tailwind": Tailwind,
+    "Bootstrap": Bootstrap,
+    "SQLServer": SqlServer,
+    "PHP": Php,
+    "MySQL": MySql,
+    "Python": Python,
+    "CSharp": Csharp,
+    "SQLite": SqLite,
+    "AspDotNet": AspDotNet
+}
+
+
+---
+
+<section class="mt-4 py-6" id="skills">
+    <h2 class="text-2xl font-bold mb-2">Skills</h2>
+    <div class="slider relative w-full flex overflow-hidden select-none"  style="--t:90s;">
+        <ul>
+            {
+            skills.map(({name,level}) => {
+                const Icon = SKILLS_ICONS[name]
+
+                if (!Icon) return null
+
+                return (
+                    <li class="skill inline-flex m-2 flex-col text-center bg-[#232344] rounded-md p-2">
+                        <span class="flex justify-center items-center gap-2"><Icon /> {name}</span>
+                        <span class="opacity-65 text-sm">{level}</span>
+                    </li>
+                )
+            })
+        }
+        </ul>
+        <ul>
+            {
+                skills.map(({name,level}) => {
+                    const Icon = SKILLS_ICONS[name]
+    
+                    if (!Icon) return null
+    
+                    return (
+                        <li class="skill m-2 inline-flex flex-col text-center bg-[#232344] rounded-md p-2">
+                            <span class="flex justify-center items-center gap-2"><Icon /> {name}</span>
+                            <span class="opacity-65 text-sm">{level}</span>
+                        </li>
+                    )
+                })
+            }
+        </ul>
+    </div>
+</section>
+
+
+<style>
+    .slider {
+        mask-image: linear-gradient(90deg, transparent,rgba(0,0,0,0.7), rgba(0,0,0,0.7), transparent);
+    }
+
+    .slider ul {
+        white-space: nowrap;
+        animation: scrollAnimate var(--t) linear infinite;
+        animation-delay: calc(var(--t) * -1);
+    }
+
+    .slider ul:nth-child(2){
+        animation: scrollAnimate2 var(--t) linear infinite;
+        animation-delay: calc(var(--t) / -2);
+    }
+
+    .skill {
+        transition: 0.5s;
+    }
+
+    @keyframes scrollAnimate {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes scrollAnimate2 {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-200%);
+        }
+    }
+</style> 
