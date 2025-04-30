@@ -4,7 +4,7 @@ import azureImg from '../assets/certifications/microsoft-certified-azure-ai-fund
 import awsGettinDataBaseImg from '../assets/certifications/aws-educate-getting-started-with-databases.png'
 import awsGettinStorageImg from '../assets/certifications/aws-educate-getting-started-with-storage.png'
 import awsCloudComputingImg from '../assets/certifications/aws-educate-introduction-to-cloud-101.png'
-import Badge from './Badge.astro'
+import Badge from '@ui/AchieveBadge.astro'
 
 const images: Record<string, any>  = {
     "azureImg": azureImg,
@@ -16,12 +16,11 @@ const images: Record<string, any>  = {
 const { achievements : badges } = basic;
 ---
 
-<section class="w-full text-center mt-6">
-    <h2 class="text-xl my-2 font-bold">My Achievements</h2>
-    <div class="flex flex-wrap gap-2 justify-center items-center overflow-hidden">
+<section class="w-full text-center mt-6 achivements-section">
+    <h2 class="text-lg sm:text-xl text-light-accentSecondary dark:text-white font-bold mb-3">My Achievements</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1.5 bg-light-surface dark:bg-transparent px-2 py-6 lg:px-6 rounded-md">
         {
             badges.map((badge, index) => (
-               
                 <Badge
                     badgeClass={`badge-${index}`}
                     imgSrc={images[badge.img]}
@@ -33,4 +32,13 @@ const { achievements : badges } = basic;
         }
     </div>
 </section>
+
+<style>
+    @media screen and (max-width: 400px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+        
+    }
+</style>
 
