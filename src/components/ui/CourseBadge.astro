@@ -1,0 +1,15 @@
+---
+interface Props {
+    name: string
+    institution: string
+    url: string
+}
+
+const { name, institution, url } = Astro.props
+---
+
+<li class="bg-light-white dark:bg-dark-surfaceAlt p-2 my-2 rounded-md w-full flex flex-col gap-2 justify-between dark:shadow-none shadow-zinc-400 shadow-lg">
+    <p class="font-semibold text-sm text-light-surface dark:text-white">{name}</p>
+    <span class="text-xs opacity-60">{institution}</span>
+    <a href={url} target="_blank" class="px-4 py-2 rounded-md text-white bg-light-surface dark:bg-dark-surface hover:bg-light-surfaceAlt dark:hover:bg-dark-hover text-center transition-all">See</a>
+</li>

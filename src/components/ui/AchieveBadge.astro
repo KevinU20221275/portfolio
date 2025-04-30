@@ -1,0 +1,63 @@
+---
+const { badgeClass, imgSrc, badgeName, badgeType, href } = Astro.props;
+---
+
+<div class={`${badgeClass} badge relative z-10 opacity-0 transition-all duration-500 flex justify-center items-center flex-col bg-light-white dark:bg-dark-surfaceAlt rounded-md py-3 px-2`}>
+    <img class="w-[50%]" src={imgSrc.src} alt="">
+    <p class="text-center text-sm sm:text-base text-light-surface dark:text-white my-2 font-semibold">{badgeType}</p>
+    <p class="text-xs text-light-textSecondary dark:text-[#ccc]">{badgeName}<p/>
+    <a class="mt-2 py-2 px-4 text-white bg-light-surface dark:bg-dark-surface rounded-md hover:bg-light-surfaceAlt dark:hover:bg-dark-hover transition-all" href={href} target="_blank">See Badge in Credly</a>
+</div>
+
+<script>
+    function animateAchieveBadge(){
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting){
+                    entry.target.classList.add('badge-animate');
+                } 
+            })
+        },{
+            threshold: 0.5
+        })
+        
+        document.querySelectorAll('.badge').forEach(badge => {
+            observer.observe(badge);
+        })
+    }
+
+    animateAchieveBadge()
+
+    document.addEventListener("astro:after-swap", () => {
+        animateAchieveBadge();
+    });
+</script>
+
+<style>
+    @keyframes fadeInUp {
+        from {
+            transform: translateX(-200px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .badge-animate {
+        animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    .badge-0 {
+        animation-delay: 0.3s;
+    }
+    .badge-1 {
+        animation-delay: .6s;
+    }
+    .badge-2 {
+        animation-delay: .9s;
+    }
+    .badge-3 {
+        animation-delay: 1.2s;
+    }
+</style>

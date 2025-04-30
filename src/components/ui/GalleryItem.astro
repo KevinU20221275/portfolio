@@ -1,0 +1,18 @@
+---
+interface Props {
+    text : string;
+    image : string
+    cols: string;
+    rows: string;
+}
+
+const { text, image, cols, rows } = Astro.props
+---
+
+<div class={`rounded-md row-span-2 overflow-hidden relative group`}
+style={`grid-column: span ${cols} / span ${cols}; grid-row: span ${rows} / span ${rows};`}
+>
+    <img class="grid-item w-full h-full object-cover group-hover:scale-110 group-hover:rotate-2 transition-all" src={image} alt=`image that show the next text "${text}"`>
+    <span class="absolute text-black p-2 bg-white/20 backdrop-blur-sm hidden group-hover:lg:block z-20 top-4 left-4 max-w-40 rounded-md">{text}</span>
+</div>
+

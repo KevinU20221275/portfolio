@@ -1,0 +1,48 @@
+---
+interface Props {
+    href: string;
+    title: string;
+    target?: string;
+}
+
+const { href, title, target } = Astro.props
+---
+
+<a 
+    href={href}
+    title={title}
+    target={target}
+    rel="noopener noreferrer"
+    class={`social-link p-3 rounded-md border-[1px] border-transparent text-[#eee] bg-light-surface hover:bg-light-surfaceAlt hover:border-light-surfaceAlt dark:bg-dark-surface dark:hover:bg-dark-hover dark:hover:border-[#fffa] transition-all duration-500 opacity-0`}>
+    <slot/>
+</a>
+
+
+<style>
+    .social-link {
+        animation: showUpY 1.6s forwards;
+    }
+
+    .social-link:nth-child(1){
+        animation-delay: 0.5s;
+    }
+    .social-link:nth-child(2){
+        animation-delay: 1s;
+    }
+    .social-link:nth-child(3){
+        animation-delay: 1.5s;
+    }
+    .social-link:nth-child(4){
+        animation-delay: 2s;
+    }
+
+    @keyframes showUpY {
+        from {
+            transform: translateY(70px);
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>

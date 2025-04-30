@@ -1,0 +1,70 @@
+---
+import { SKILLS_ICONS } from "@/constants/skillIcons"
+
+interface Props {
+    name:string
+    justIcon?:boolean
+}
+const { name, justIcon } = Astro.props as Props
+
+const Icon = SKILLS_ICONS[name]
+
+const styles = justIcon ? "p-4 bg-light-surface dark:bg-white/20" : "skill w-20 h-20 gap-2 bg-light-surfaceAlt dark:bg-dark-surface dark:text-white p-1"
+---
+                        
+{Icon && 
+    <li class={`skill flex flex-col justify-center items-center group rounded-md text-white  ${styles}`}>
+        {
+            justIcon ? <Icon /> : 
+            <span class="text-xs">
+                {name}
+            </span>
+            <span class="scale-[180%] mt-1">
+                <Icon />
+            </span>
+        }
+    </li>
+}
+
+<style>
+    .skill {
+        opacity: 0;
+    }
+
+    @keyframes scaleUp {
+        from {
+            transform: scale(0);
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    .animate-skill {
+        animation: scaleUp 1s ease-out forwards;
+    }
+</style>
+
+<script>
+    function animateSkill(){
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-skill');
+                }
+            });
+        }, {
+            threshold: 1
+        });
+        
+        document.querySelectorAll('.skill').forEach(skill => {
+            observer.observe(skill)
+        })
+    }
+    
+    animateSkill()
+
+    document.addEventListener("astro:after-swap", () => {
+        animateSkill();
+    });
+</script>
