@@ -1,5 +1,8 @@
 ---
+import EducationIcon from '@icons/Education.astro';
+import CourseBadge from '@ui/CourseBadge.astro';
 import  { basic } from '../../cv.json';
+import Achievements from './Achievements.astro';
 
 const {education} = basic
 
@@ -8,25 +11,20 @@ const educationInfo = education[0]
 const { institution, degree, major, graduationYear, courses} = educationInfo
 ---
 
-<section class="mt-4 py-4">
-    <h3 class="text-2xl font-bold">Education</h3>
-    <div class="flex justify-between">
+<section class="porfolio-section mt-4 py-4" id="education">
+    <h3 class="flex gap-1 items-center text-xl sm:text-2xl font-bold text-light-textPrimary dark:text-dark-accent"><EducationIcon/> Education</h3>
+    <div class="flex justify-between text-base sm:text-lg ">
         <div>
-            <h3 class="text-xl font-medium">{institution}</h3>
-            <p class="opacity-65">{major}</p>
+            <h3 class="font-medium text-light-accentSecondary dark:text-dark-accentSecondary">{institution}</h3>
+            <p class="opacity-65 text-sm sm:text-base">{major}</p>
         </div>
-        <p class="font-medium">Graduated {graduationYear}</p>
+        <p class="font-medium text-light-accentSecondary dark:text-dark-accentSecondary">Graduated {graduationYear}</p>
     </div>
+    <Achievements/>
     <div class="mt-4">
-        <h4 class="text-xl font-medium text-center">Courses</h4>
+        <h4 class="text-xl font-bold text-center text-light-accentSecondary dark:text-white">Courses</h4>
         <ul class="grid gap-2">
-            {courses.map((course, index) => (
-                <li class="bg-[#343444] p-2 my-2 rounded-md w-full flex flex-col gap-2 justify-between">
-                    <p class="font-semibold text-sm">{course.name}</p>
-                    <span class="text-xs opacity-60">{course.institution}</span>
-                    <a href={course.url} target="_blank" class="px-4 py-2 rounded-md bg-[#232344] hover:bg-[#121222] text-center">See</a>
-                </li>
-            ))}
+            {courses.map((course) => <CourseBadge name={course.name} institution={course.institution} url={course.url} />)}
         </ul>
     </div>
 </section>
