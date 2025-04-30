@@ -7,9 +7,9 @@ const { summary } = basic
 const paragraphs = summary.split('.')
 ---
 
-<section class="porfolio-section font-mono overflow-hidden py-4 bg-light-surfaceAlt dark:bg-transparent rounded-md p-4" id="about">
+<section class="porfolio-section overflow-hidden py-4 bg-light-surfaceAlt dark:bg-transparent rounded-md p-4" id="about">
     <h4 class="flex items-center gap-2 text-xl sm:text-2xl font-bold text-white dark:text-dark-accent"><AboutMe/> About Me</h4>
-    <article class="font-mono flex flex-col sm:flex-row justify-between items-center gap-4 mt-4">
+    <article class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-4">
         <div class="flex flex-col gap-2 max-w-2xl text-sm sm:text-lg order-2 sm:order-1 text-light-white dark:text-dark-textSecondary">
             {
                 paragraphs.map((paragraph) => {
