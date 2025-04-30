@@ -28,6 +28,8 @@ export async function POST({ request }: any){
             return new Response(JSON.stringify({message:`Hubo un error al enviar el mensaje: ${response.statusText}`}), {status: 409})
         }
     } catch (error) {
-        return new Response(JSON.stringify({error: error.message}))
+        if (error instanceof Error) {
+            return new Response(JSON.stringify({error: error.message}), {status: 500})
+        }
     }
 }
