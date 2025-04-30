@@ -2,6 +2,8 @@
 import { useState } from 'react';
 
 export function ContactForm(){
+  const [isSending, setIsSending] = useState(false)
+  const [isSuccessSend, setSuccessSend] = useState(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -38,26 +40,33 @@ export function ContactForm(){
     return name === '' || email === '' || subject === '' || message === '';
   }
 
-  async function handleSubmit(event) {
-    event.preventDefault()
+  const cleanStatesForModal = () => {
+    setTimeout(() => {
+      setIsSending(false)
+      setSuccessSend(null)
+    }, 1500)
+  }
 
+  async function handleSubmit(event) { event.preventDefault()
     if (hasErrors(formData.name, formData.email, formData.subject, formData.message)) return
 
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+    setIsSending(true) 
+    const res = await fetch('/api/contact', { 
+      method: 'POST', 
+      headers: { 'Content-Type': 'application/json' }, 
+      body: JSON.stringify(formData), 
     });
 
-    if (res.ok){
-      const data  = await res.json()
-      console.log(data)
-      setFormData({name: '', email: '', subject: '' ,message: ''})
-      alert("Send succesful")
-    } else {
-      setSuccessSend(false)
-      setErrors({...errors, sedError: 'Hubo un error al enviar el mensaje, intenta nuevamente' });
+    if (res.ok){ 
+      const data = await res.json() 
+      setFormData({name: '', email: '', subject: '' ,message: ''}) 
+      setSuccessSend(true) } 
+    else { 
+      setSuccessSend(false) 
+      setErrors({...errors, sedError: 'Hubo un error al enviar el mensaje, intenta nuevamente' }); 
     }
+
+    cleanStatesForModal() 
   }
 
   return (
@@ -109,6 +118,7 @@ export function ContactForm(){
         </fieldset>
         <button type="submit" className='bg-light-surfaceAlt hover:bg-light-accent dark:bg-dark-surface dark:hover:bg-dark-hover px-4 py-2 rounded-md' >Send</button>
       </form>
+      <EmailModalMessage isSending={isSending} isSuccessSend={isSuccessSend} />
     </div>
   )
 }
