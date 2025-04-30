@@ -1,0 +1,44 @@
+---
+import {basic} from '../../cv.json'
+import { ContactForm } from './ContacForm'
+import Github from './icons/Github.astro'
+import LinkedIn from './icons/LinkedIn.astro'
+import Mail from './icons/Mail.astro'
+import Phone from './icons/Phone.astro'
+import ContactIcon from '@icons/Contact.astro'
+
+const { email, phone, profiles } = basic
+---
+<section class="porfolio-section mt-8 py-2" id="contact">
+    <h2 class="flex items-center gap-1 text-xl sm:text-2xl font-extrabold text-light-textPrimary dark:text-dark-accent"><ContactIcon/> Contact</h2>
+    <p class="text-md sm:text-base dark:text-dark-textSecondary">If you want to get in touch with me, you can do it through the following channels:</p>
+    <article class="grid grid-cols-1 md:grid-cols-3 gap-4 py-4">
+        <div class="flex flex-col items-start gap-4 mx-auto sm:mx-0 md:col-span-1">
+            <a href={`mailto:${email}`} class="flex items-center gap-2 text-base font-semibold text-light-textPrimary dark:text-dark-accent hover:underline">
+                <Mail></Mail>
+                <span class="text-black dark:text-dark-textSecondary dark:hover:text-zinc-200">
+                    {email}
+                </span>
+            </a>
+            <a href={`tel:${phone}`} class="flex items-center gap-2 text-base font-semibold text-light-textPrimary dark:text-dark-accent hover:underline">
+                <Phone></Phone>
+                <span class="text-black dark:text-dark-textSecondary dark:hover:text-zinc-200">
+                    {phone}
+                </span>
+            </a>
+            <a href={profiles[0].url} target="_blank" class="flex items-center gap-2 text-base font-semibold text-light-textPrimary dark:text-dark-accent hover:underline">
+                <Github></Github>
+                <span class="text-black dark:text-dark-textSecondary dark:hover:text-zinc-200">
+                    Github
+                </span>
+            </a>
+            <a href={profiles[1].url} target="_blank" class="flex items-center gap-2 text-base font-semibold text-light-textPrimary dark:text-dark-accent hover:underline">
+                <LinkedIn></LinkedIn>
+                <span class="text-black dark:text-dark-textSecondary dark:hover:text-zinc-200">
+                    LinkedIn
+                </span>
+            </a>
+        </div>
+        <ContactForm client:load/>
+    </article>
+</section>
