@@ -1,0 +1,58 @@
+---
+import Vercel from "@icons/Vercel.astro"
+import Netlify from "@icons/Netlify.astro"
+import Deploy from "@icons/Deploy.astro";
+
+interface SubFeature {
+    subFunctionality: string;
+    subDescription: string
+}
+
+interface Feature {
+    functionality: string;
+    description?: string;
+    subList? : SubFeature[]
+}
+
+interface Props {
+    features : Feature[]
+    deployed : string
+}
+
+const { features, deployed } = Astro.props
+---
+<section class="py-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-2">
+    <h2 class="font-extrabold text-lg sm:text-xl text-light-accentSecondary dark:text-white mb-4 md:col-span-2 text-center">Features</h2>
+    <article class="">
+        <ul class="list-disc pl-6 text-light-textSecondary dark:text-dark-textSecondary">
+            {features.map((f) => (
+                <li>
+                    <span class="font-bold text-light-textPrimary dark:text-zinc-200">
+                        {f.functionality}: 
+                    </span>
+                    {f?.description}
+                    {
+                        f?.subList && 
+                        <ul class="list-disc pl-6">
+                            {f.subList.map((f) => (
+                                <li>
+                                    <span class="font-medium text-light-textPrimary dark:text-zinc-200">
+                                        {f.subFunctionality}: 
+                                    </span>
+                                    {f.subDescription}
+                                </li>
+                            ))}
+                        </ul>
+                    }
+                </li>
+            ))}
+        </ul>
+    </article>
+    <article class="flex flex-col justify-center gap-4 items-center text-zinc-500">
+        <h3 class="flex items-center gap-2 text-lg sm:text-xl font-bold text-light-accentSecondary dark:text-white"><Deploy/> Deployed In</h3>
+        <span class={`flex items-center gap-4 text-2xl hover:scale-125 ${deployed === "Vercel" ? 'hover:text-black' : 'hover:text-[#20C6B7]'} transition-all`}>
+            {deployed}
+            {deployed === "Vercel" ? <Vercel/> : <Netlify/>}
+        </span>
+    </article>
+</section>
