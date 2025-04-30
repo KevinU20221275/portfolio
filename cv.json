@@ -3,9 +3,9 @@
         "name": "Kevin Antonio Montano",
         "label": "Technical Student in Software Development",
         "image": "/me.webp",
-        "email": "2022kevinmontano@gmail.com",
+        "email": "kevinmontanodev@gmail.com",
         "phone": "7873-4316",
-        "summary": "I am a technical student in software development with more than 2 years of learning focused on building digital solutions. I am currently looking for my first professional job while I conclude my degree next year. I am passionate about continuing to learn and put my skills into practice to contribute to the success of real projects.",
+        "summary": "I am a technical student in software development with more than 2 years of learning focused on building digital solutions. I am currently looking for my first professional job while I conclude my degree this year. I am passionate about continuing to learn and put my skills into practice to contribute to the success of real projects.",
         "location": {
             "address": "",
             "postalCode": "03403",
@@ -17,7 +17,7 @@
             {
                 "network": "LinkedIn",
                 "username": "kevin-montano",
-                "url": "https://www.linkedin.com/in/kevin-montano/"
+                "url": "https://www.linkedin.com/in/kevin-antonio-montano-aquino/"
             },
             {
                 "network": "GitHub",
@@ -114,7 +114,7 @@
                 "level": "Intermediate"
             },
             {
-                "name": "JavaScript",
+                "name": "Javascript",
                 "level": "Intermediate"
             },
             {
@@ -122,7 +122,7 @@
                 "level": "Intermediate"
             },
             {
-                "name": "TypeScript",
+                "name": "Typescript",
                 "level": "Beginner"
             },
             {
@@ -186,59 +186,411 @@
         ],
         "projects": [
             {
+                "id": "1",
                 "name": "Memory Game",
-                "description": "This is a card matching game developed with React",
+                "short": "This is a card matching game developed with React",
+                "description": "This is a card matching game developed with React, designed to test your memory and skills in finding matching pairs. ",
                 "url": "https://luminous-valkyrie-e7fb3d.netlify.app/",
                 "github":"https://github.com/KevinU20221275/memory-game",
-                "img": "/img/memoryGame.png",
+                "img": "/img/memoryGame.webp",
                 "keywords": [
                     "React",
                     "Tailwind",
-                    "JavaScript"
+                    "Javascript",
+                    "Git",
+                    "GitHub"
+                ],
+                "deployed": "Netlify",
+                "features": [
+                    {
+                        "functionality" : "Pairing logic",
+                        "description" : "Implementation of a system to verify correct and incorrect pairs."
+                    },
+                    {
+                        "functionality" : "Global State Management",
+                        "description" : "Using React Context to manage score and game progress."
+                    },
+                    {
+                        "functionality" : "Custom Hooks",
+                        "description" : "Organization of game logic in custom hooks for greater modularity and reuse."
+                    },
+                    {
+                        "functionality" : "Interactivity",
+                        "description" : "Visual effects on the cards when flipping them."
+                    },
+                    {
+                        "functionality" : "Game Restart",
+                        "description" : "Functionality to restart the game and start from scratch."
+                    }
+                ],
+                "galerryDimension" : {
+                    "height" : "1100px",
+                    "cols" : "10",
+                    "rows" : "2"
+                },
+                "galleryItems" : [
+                    {
+                        "tooltip" : "Click the button to start game",
+                        "image" : "/img/memoryGame/1.webp",
+                        "colsSpan" : "4",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "You lose points if you dont find a pair",
+                        "image" : "/img/memoryGame/2.webp",
+                        "colsSpan" : "6",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "Find pairs give you points",
+                        "image" : "/img/memoryGame/3.webp",
+                        "colsSpan" : "5",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "You win if you find all pairs",
+                        "image" : "/img/memoryGame/4.webp",
+                        "colsSpan" : "5",
+                        "rowsSpan" : "1"
+                    }
                 ]
             },
             {
+                "id": "2",
                 "name":"Hangman Game",
-                "description" : "This is a hangman game developed with React, designed to challenge your word guessing skills while trying to avoid losing.",
+                "short" : "Game developed with React, designed to challenge your word guessing skills.",
+                "description": "This is a hangman game developed with React, designed to challenge your word guessing skills while trying to avoid losing. The app includes features that make the game dynamic and easy to play.",
                 "url" : "https://venerable-youtiao-860438.netlify.app/",
                 "github": "https://github.com/KevinU20221275/hangman-game",
-                "img": "/img/hangmanGame.png",
+                "img": "/img/hangmanGame.webp",
                 "keywords": [
                     "React",
                     "Tailwind",
-                    "JavaScript"
+                    "Javascript",
+                    "Git",
+                    "GitHub"
+                ],
+                "deployed": "Netlify",
+                "features" : [
+                    {
+                        "functionality" : "Game Logic",
+                        "description" : "Implementation of a system that checks selected letters and complete words."
+                    },
+                    {
+                        "functionality" : "Multilanguage Support",
+                        "description" : "The interface is available in English and Spanish, selectable by the user."
+                    },
+                    {
+                        "functionality" : "Interactivity",
+                        "description" : "Animations and sounds that enrich the player's experience."
+                    },
+                    {
+                        "functionality" : "Game Restart",
+                        "description" : "Functionality to restart the game and start from scratch."
+                    },
+                    {
+                        "functionality" : "Clue System",
+                        "description" : "Provides clues to help the player guess the word."
+                    }
+                ],
+                "galerryDimension" : {
+                    "height" : "500px",
+                    "cols" : "12",
+                    "rows" : "2"
+                },
+                "galleryItems" : [
+                    {
+                        "tooltip" : "Avoid losing by guessing the word",
+                        "image" : "/img/hangmanGame/1.webp",
+                        "colsSpan" : "2",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "If you make a mistakes 6 times you lose",
+                        "image" : "/img/hangmanGame/2.webp",
+                        "colsSpan" : "6",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "Support for 2 languages (English and Spanish)",
+                        "image" : "/img/hangmanGame/3.webp",
+                        "colsSpan" : "4",
+                        "rowsSpan" : "2"
+                    },
+                    {
+                        "tooltip" : "If you have already selected a letter, it becomes unclickable.",
+                        "image" : "/img/hangmanGame/4.webp",
+                        "colsSpan" : "4",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "You win if you guess the 10 words",
+                        "image" : "/img/hangmanGame/5.webp",
+                        "colsSpan" : "4",
+                        "rowsSpan" : "1"
+                    }
                 ]
             },
             {
+                "id": "3",
                 "name":"To Do App",
-                "description" : "This is a simple yet powerful To-Do application built with Next.js and TypeScript. It features user authentication, CRUD operations for task management, and a responsive UI with Tailwind CSS. The app is deployed on Vercel and uses Neon as the database provider.",
+                "short": "Aplication to management tasks with microservices architecture",
+                "description" : "This is a simple yet powerful To-Do application built with Next.js and TypeScript. It features user authentication, CRUD operations for task management, and a responsive UI with Tailwind CSS. The app is deployed on Vercel, using Neon and Turso as database providers in a microservices architecture.",
                 "url" : "https://to-do-app-three-khaki.vercel.app/",
                 "github": "https://github.com/KevinU20221275/ToDoApp",
-                "img": "/img/to_do_app.png",
+                "img": "/img/to_do_app.webp",
                 "keywords": [
-                    "Next.js",
-                    "NextAuth.js",
-                    "TypeScript",
-                    "PostgreSQL (Neon DB)",
-                    "Tailwind"
+                    "NextJS",
+                    "NextAuth",
+                    "Typescript",
+                    "PostgresSQL",
+                    "SQLite",
+                    "Tailwind",
+                    "Git",
+                    "GitHub"
+                ],
+                "deployed": "Vercel",
+                "features" : [
+                    {
+                        "functionality" : "Next.js",
+                        "description" : "for a robust development experience."
+                    },
+                    {
+                        "functionality" : "NextAuth.js",
+                        "description" : "for user authentication."
+                    },
+                    {
+                        "functionality": "Microservices architecture",
+                        "subList" : [
+                            {
+                                "subFunctionality" : "Users",
+                                "subDescription" : "stored in a PostgreSQL database hosted on Neon"
+                            },
+                            {
+                                "subFunctionality": "Tasks",
+                                "subDescription" : "stored in a SQLite database hosted on Turso."
+                            },
+                            {
+                                "subFunctionality" : "Services",
+                                "subDescription" : "Each service is organized inside the new /services directory."
+                            }
+                        ]
+                    },
+                    {
+                        "functionality" : "Custom Hooks",
+                        "description" : "for handling tasks and modals."
+                    },
+                    {
+                        "functionality" : "Dark Mode / Light Mode",
+                        "description" : "to better ueser experience"
+                    },
+                    {
+                        "functionality" : "Toast notifications",
+                        "description" : "for better UX"
+                    }
+                ],
+                "galerryDimension" : {
+                    "height" : "1000px",
+                    "cols" : "12",
+                    "rows" : "3"
+                },
+                "galleryItems" : [
+                    {
+                        "tooltip" : "Login",
+                        "image" : "/img/to-do/1.webp",
+                        "colsSpan" : "3",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "You can create a user",
+                        "image" : "/img/to-do/2.webp",
+                        "colsSpan" : "3",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "The app have a dark / ligth mode",
+                        "image" : "/img/to-do/3.webp",
+                        "colsSpan" : "6",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "You can management your tasks",
+                        "image" : "/img/to-do/4.webp",
+                        "colsSpan" : "5",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "The app use a modal form to create and update tasks",
+                        "image" : "/img/to-do/5.webp",
+                        "colsSpan" : "3",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "Tasks view",
+                        "image" : "/img/to-do/6.webp",
+                        "colsSpan" : "4",
+                        "rowsSpan" : "2"
+                    },
+                    {
+                        "tooltip" : "Editing one task",
+                        "image" : "/img/to-do/7.webp",
+                        "colsSpan" : "3",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "The app has a Next Auth authentication system.",
+                        "image" : "/img/to-do/8.webp",
+                        "colsSpan" : "5",
+                        "rowsSpan" : "1"
+                    }
                 ]
             },
             {
-                "name":"Hangman Game",
+                "id": "4",
+                "name":"Spotify Clone",
+                "short" : "App development with Astro and React",
                 "description" : "This project is a music playlist management application built with Astro and React. It features a simulated API, global state management with Zustand, and various performance optimizations using React hooks. The project is styled using Tailwind CSS.",
                 "url" : "https://spotify-clone-kevin-montano.vercel.app/",
                 "github": "https://github.com/KevinU20221275/spotify-clone",
-                "img":"/img/spotify-clone.png",
+                "img":"/img/spotify-clone.webp",
                 "keywords": [
                     "Astro",
                     "React",
-                    "JavaScript",
-                    "TypeScript",
+                    "Javascript",
+                    "Typescript",
                     "Zustand",
-                    "Tailwind"
+                    "Tailwind",
+                    "Git",
+                    "GitHub"
+                ],
+                "deployed": "Vercel",
+                "features": [
+                    {
+                        "functionality" : "Simulated API", 
+                        "description" : "The application mimics API calls with local data."
+                    },
+                    {
+                        "functionality" : "Global State Management",
+                        "description" : "Zustand is used to manage the currentMusic state."
+                    },
+                    {
+                        "functionality" : "Efficient Searching",
+                        "description" : "Implemented a debounce function to optimize the main search feature."
+                    },
+                    {
+                        "functionality" :"Custom Hooks",
+                        "subList" : [
+                            {
+                                "subFunctionality" : "usePlaylistsFilters",
+                                "subDescription" : "Manages filtering of playlists based on different criteria."
+                            },
+                            {
+                                "subFunctionality" : "useFilterPlaylists",
+                                "subDescription" : "Filters playlists based on user-selected options."
+                            },
+                            {
+                                "subFunctionality" : "useAsideView",
+                                "subDescription" : "Controls the display mode of playlists (list, compact list, or grid view)."
+                            }
+                        ]
+                    },
+                    {
+                        "functionality" : "Performance Optimizations",
+                        "subList" : [
+                            {
+                                "subFunctionality" : "Utilizes useMemo",
+                                "subDescription": "For filtering playlists and recommended songs."
+                            },
+                            {
+                                "subFunctionality" : "Uses useCallback",
+                                "subDescription" : "To optimize add/remove functions in the playlist."
+                            }
+                        ]
+                    }
+                ],
+                "galerryDimension": {
+                    "height" : "900px",
+                    "cols" : "12",
+                    "rows" : "4"
+                },
+                "galleryItems" : [
+                    {
+                        "tooltip" : "You can create your own playlist",
+                        "image" : "/img/spotify-clone/1.webp",
+                        "colsSpan" : "2",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "You can add songs to your playlist",
+                        "image" : "/img/spotify-clone/2.webp",
+                        "colsSpan" : "7",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "You can change the view of your playlist",
+                        "image" : "/img/spotify-clone/3.webp",
+                        "colsSpan" : "3",
+                        "rowsSpan" : "2"
+                    },
+                    {
+                        "tooltip" : "You can remove songs from your playlist",
+                        "image" : "/img/spotify-clone/4.webp",
+                        "colsSpan" : "5",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "You can add playlist created by spotify to your playlist",
+                        "image" : "/img/spotify-clone/5.webp",
+                        "colsSpan" : "4",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "You can filter your playlist with buttons by playlist created by you or spotify and albums",
+                        "image" : "/img/spotify-clone/6.webp",
+                        "colsSpan" : "3",
+                        "rowsSpan" : "1"
+                    },
+                    {
+                        "tooltip" : "You can search song, artists, playlists or albums",
+                        "image" : "/img/spotify-clone/7.webp",
+                        "colsSpan" : "9",
+                        "rowsSpan" : "2"
+                    },
+                    {
+                        "tooltip" : "You can search your playlist by name",
+                        "image" : "/img/spotify-clone/8.webp",
+                        "colsSpan" : "3",
+                        "rowsSpan" : "1"
+                    }
                 ]
             }
+        ],
+        "moreProjects" : [
+            {
+                "name" : "UniTech Week Page",
+                "description" : "Informational page about an event at my university called Unitech Week where I worked with a professor and a classmate.",
+                "url": "",
+                "github": "https://github.com/rotsenk/UniTech",
+                "img": "/img/moreProjects/unitechWeekProject.webp",
+                "keywords": ["HTML", "CSS", "JavaScript", "Bootstrap", "Git", "GitHub"]
+            },
+            {
+                "name" : "Hardware Store",
+                "description" : "A .NET-based web application designed to streamline hardware store operations. It includes features for inventory control, sales tracking, customer relationship management, and employee management.",
+                "url": "",
+                "github": "https://github.com/KevinU20221275/HardwareStore",
+                "img": "/img/moreProjects/hardwareStoreProject.webp",
+                "keywords": ["C#", "HTML", "CSS", "JavaScript", "Jquery" ,"Bootstrap", "Git", "GitHub", "NetFramework", "SQLServer"]
+            },
+            {
+                "name" : "Book Master",
+                "description" : "Book Master is a PHP-based web application using PDO for database interaction. It provides functionality for managing books, clients, and sales, with user authentication and role-based access (Administrator, Manager, Seller).",
+                "url": "https://bookmaster.wuaze.com/index.php",
+                "github": "https://github.com/KevinU20221275/Grupo7-Laboratorio2_Tarea1",
+                "img": "/img/moreProjects/bookMasterProject.webp",
+                "keywords": ["PHP", "HTML", "CSS", "JavaScript", "Jquery" ,"Bootstrap", "Git", "GitHub", "NetFramework", "MySQL"]
+            }
         ]
-            
+         
     }
 }
