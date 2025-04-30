@@ -1,0 +1,69 @@
+---
+interface Props {
+    id: string;
+    name: string;
+    imgSrc: string;
+    description: string;
+}
+
+
+const {id, name, imgSrc, description} = Astro.props
+---
+
+<a href={`/projects/${id}`} class="project-card p-[2px] bg-dark-projectCardBg relative w-full h-14  md:h-28 sm:h-20 rounded-[1.7rem] md:rounded-[3rem] overflow-hidden flex" title={`see more about ${name} project`}>
+    <div class="animation-element w-[155%] h-[155%] translate-x-[-100%] translate-y-[-100%] absolute z-10 top-0 left-0 bg-light-accent dark:bg-dark-surface"></div>
+    <img 
+    src={imgSrc} 
+    alt={description}
+    class="border-4 dark:border-dark-border relative z-10 object-cover rounded-[1.7rem] md:rounded-[3rem] w-full"
+    transition:name=`project ${id} image`
+    >
+</a>
+
+<style>
+    .animation-element.animated {
+        clip-path: polygon(100% 0, 84% 31%, 65% 57%, 37% 78%, 0 100%, 0 0);
+        animation: paintBackground 10s linear;
+    }
+
+    .project-card {
+        transition: all .5s ease-in-out;
+    }
+
+    .project-card.current-project-card {
+        width: 130%;
+    }
+
+    @keyframes paintBackground {
+        from {
+            transform: translate(-55%, -55%);
+        } to {
+            transform: translate(0 ,0);
+        }
+    }
+</style>
+<script>
+    function dinamicCard(){
+        const projectsCards = document.querySelectorAll('.project-card')
+        const animationElement = document.querySelectorAll('.animation-element')
+        let current = 0
+
+        const updateCurrentProject = () => {
+            projectsCards.forEach((card, index) => {
+                animationElement[index].classList.toggle('animated', index === current)
+                card.classList.toggle('current-project-card', index === current);
+            });
+        };
+
+        updateCurrentProject()
+
+        setInterval(() => {
+            current = (current + 1) % projectsCards.length
+            updateCurrentProject();
+        }, 10000)
+    }
+
+    dinamicCard()
+
+    document.addEventListener("astro:after-swap", dinamicCard)
+</script>
