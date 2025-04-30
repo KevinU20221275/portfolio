@@ -1,0 +1,45 @@
+---
+import cv from '../../../cv.json';
+import Layout from '@layouts/Layout.astro';
+import SkillBadge from '@/components/ui/SkillBadge.astro';
+import Gallery from '@components/Gallery.astro';
+import Link from '@/components/icons/Link.astro';
+import Github from '@/components/icons/Github.astro';
+import ProjectFeatures from '@components/ProjectFeatures.astro';
+
+const {id} = Astro.params;
+
+const proyect = cv.basic.projects.find((pro) => pro.id === id)
+const galleryD = proyect?.galerryDimension
+const galleryItems = proyect?.galleryItems
+const features = proyect?.features
+const deployed = proyect?.deployed
+---
+
+<Layout title={`Project | ${proyect?.name}`}>
+    <section class="pt-20 flex flex-col gap-4 sm:flex-row">
+        <picture class="max-w-2xl min-w-48 h-auto rounded-md overflow-hidden">
+            <img class="w-[100%] h-full object-cover" src={proyect?.img} alt="" transition:name=`project ${id} image`>
+        </picture>
+        <article class="flex flex-col gap-3 max-w-xl min-w-72">
+            <h1 class="text-3xl font-extrabold text-light-textPrimary dark:text-dark-textPrimary">{proyect?.name}</h1>
+            <p class="text-light-textSecondary dark:text-dark-textSecondary">{proyect?.description}</p>
+
+            <div class="mt-2 flex gap-1.5">
+                <a href={proyect?.github} target="_blank" class="flex items-center gap-2 text-white bg-light-surface dark:bg-white/20 px-4 py-2 rounded-md hover:scale-110 transition-all hover:bg-light-surfaceAlt dark:hover:bg-white/40"><Github/> Code<a/>
+                <a href={proyect?.url} target="_blank" class="flex items-center gap-2 text-white bg-light-surface dark:bg-white/20 px-4 py-2 rounded-md hover:scale-110 transition-all hover:bg-light-surfaceAlt dark:hover:bg-white/40"><Link/> Preview</a>
+            </div>
+            <div>
+                <h2 class="text-lg sm:text-xl font-extrabold my-2 text-light-accentSecondary dark:text-white">Technologies</h2>
+                <ul class="flex flex-wrap gap-2">
+                    {proyect?.keywords.map((keyword) => <SkillBadge name={keyword} justIcon={true} /> )}
+                </ul>
+            </div>
+        </article>
+    </section>
+    
+    {features && deployed && <ProjectFeatures features={features} deployed={deployed} />}
+
+    {galleryD && galleryItems && <Gallery galleryDimensions={galleryD} galleryItems={galleryItems} />}
+</Layout>
+
