@@ -1,0 +1,134 @@
+---
+import {basic} from '../../cv.json'
+import ProjectCard from '@components/ProjectCard.astro'
+import MoreProjectCard from '@components/MoreProjectCard.astro'
+import Code from '@icons/Code.astro'
+import Link from '@icons/Link.astro'
+import GitHub from './icons/GitHubSkill.astro'
+
+const { projects } = basic
+const { moreProjects } = basic
+---
+
+<section class="mt-4 porfolio-section" id="projects">
+    <h3 class="flex gap-1 items-center text-lg sm:text-2xl my-4 font-extrabold text-light-textPrimary dark:text-dark-accent"><Code/> Projects</h3>
+    <article id="project-banner" class="h-[70vh] w-full max-w-screen-lg mx-auto rounded-md flex items-end p-4 bg-no-repeat bg-cover bg-center">
+        <div class="text-white">
+            <h3 id="project-title" class="text-xl sm:text-2xl font-semibold"></h3>
+            <p id="project-description" class="text-md sm:text-base text-dark-textSecondary">{projects[0].description}</p>
+            <div class="mt-2 flex gap-1.5">
+                <a target="_blank" id="code-project-button" class="flex items-center gap-1.5 bg-white/20 px-4 py-2 rounded-md hover:scale-110 transition-all"><GitHub/> Code<a/>
+                <a target="_blank" id="live-project-button" class="flex items-center gap-1.5 bg-white/20 px-4 py-2 rounded-md hover:scale-110 transition-all hover:bg-white/40"><Link/> Preview</a>
+            </div>
+        </div>
+    </article>
+    <article class="projects flex justify-center items-center max-w-[1000px] mx-auto gap-4 py-4">
+        {projects.map((project) => (
+            <ProjectCard id={project.id} name={project.name} imgSrc={project.img} description={project.description} />
+        ))}
+    </article>
+    <article>
+        <h3 class="text-lg sm:text-xl text-center font-bold my-3 text-light-accentSecondary dark:text-white">More Projects</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+            {
+                moreProjects.map(({name, description, url, github, img, keywords}) => <MoreProjectCard projectName={name} description={description} liveProject={url} githubUrl={github} bgUrl={img} keywords={keywords} />)
+            }
+        </div>
+    </article>
+</section>
+
+<style>
+    .animate {
+        animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeInBg {
+        from {
+            opacity: 0;
+        } to {
+            opacity: 1;
+        }
+    }
+</style>
+
+
+<script>
+    import {basic} from '../../cv.json'
+    const {projects} = basic
+
+    function updateCurrentBanner(){
+        const bannerProject : HTMLElement | null = document.getElementById('project-banner')
+        const projectTitle = document.getElementById('project-title')
+        const descriptionProject = document.getElementById('project-description')
+        const liveProjectBtn = document.getElementById('live-project-button')
+        const codeProjectBtn = document.getElementById('code-project-button')
+
+        let current = 0
+        
+        const updateBanner = () => {
+            if (bannerProject) {
+                bannerProject.style.backgroundImage = `linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4)), url(${projects[current].img})`;
+                bannerProject.style.animation = "none"
+                bannerProject.offsetHeight;
+                bannerProject.style.animation = "fadeInBg 0.5s ease-in-out forwards"
+            }
+            
+            if (projectTitle){
+                projectTitle.innerText = `${projects[current].name}`;
+            }
+            
+            if (descriptionProject){
+                descriptionProject.innerText = `${projects[current].short}`
+            }
+            
+            if (liveProjectBtn) {
+                liveProjectBtn.setAttribute("href", `${projects[current].url}`)
+            }
+            
+            if (codeProjectBtn){
+                codeProjectBtn.setAttribute("href", `${projects[current].github}`)
+            }
+        };
+        
+        updateBanner()
+        
+        setInterval(() => {
+            current = (current + 1) % projects.length
+            updateBanner();
+        }, 10000)
+    }
+
+    updateCurrentBanner()
+
+    document.addEventListener("astro:after-swap", updateCurrentBanner)
+
+
+    // Intersection Observer for More Projects
+    // This will animate the more projects cards when they are in the viewport
+    function animateMoreProjects(){
+        const moreProjectsCards = document.querySelectorAll('.more-projects')
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0')
+                    entry.target.classList.add('animate')
+                } else {
+                    entry.target.classList.remove('animate')
+                    entry.target.classList.add('opacity-0')
+                }
+            })
+        }, {
+            threshold: 0.5
+        })
+
+        moreProjectsCards.forEach(card => {
+            observer.observe(card)
+        })
+    }
+
+    animateMoreProjects()
+
+    document.addEventListener("astro:after-swap", animateMoreProjects)
+
+    
+</script>
