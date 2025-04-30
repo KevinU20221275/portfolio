@@ -1,0 +1,44 @@
+---
+import Github from "@icons/Github.astro"
+import Link from "@icons/Link.astro";
+import { SKILLS_ICONS } from "@/constants/skillIcons";
+
+interface Props {
+    projectName: string;
+    bgUrl: string;
+    description: string;
+    githubUrl: string;
+    liveProject?: string;
+    keywords?: string[];
+}
+
+const {projectName, bgUrl, description, githubUrl, liveProject, keywords } = Astro.props
+---
+
+<div 
+style={`background-image: url(${bgUrl});`}
+class={`more-projects flex relative lg:h-80 md:h-72 h-64 w-72 sm:w-full mx-auto rounded-md overflow-hidden opacity-0 bg-center bg-cover hover:bg-right-top group transition-bg duration-500 ease-in-out`}>
+    <div class="flex items-end justify-between gap-2 w-full h-full group-hover:bg-black/60 p-3 text-white">
+        <div class="flex gap-4 p-4 absolute top-2 right-2">
+            <a href={githubUrl}
+            class="opacity-0 scale-150 translate-y-3 group-hover:opacity-80 group-hover:translate-y-0 transition-all duration-300 text-zinc-300 hover:text-white hover:scale-[180%]"
+            ><Github /></a>
+            {liveProject && <a href={liveProject}
+            class="opacity-0 scale-150 translate-y-3 group-hover:opacity-80 group-hover:translate-y-0 transition-all duration-300 text-zinc-300 hover:text-white hover:scale-[180%]"
+            ><Link /></a>}
+        </div>
+        <div class="opacity-0  translate-y-3 group-hover:opacity-80 group-hover:translate-y-0 transition-all duration-300">
+            <h4 class="text-lg sm:text-xl font-semibold ">{projectName}</h4>
+            <p class="text-sm sm:text-base">{description}</p>
+            <div class="flex gap-1 pt-2">
+                {
+                    keywords?.map((keyword) => {
+                        const Icon = SKILLS_ICONS[keyword]
+                        if (!Icon) return
+                        return <span class="text-sm font-semibold block p-1 bg-light-white dark:bg-white/20 rounded-md group"><Icon/></span>
+                    })
+                }
+            </div>
+        </div>
+    </div>
+</div>
