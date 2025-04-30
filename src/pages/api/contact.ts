@@ -11,8 +11,8 @@ export async function POST({ request }: any){
                 "api-key" : import.meta.env.BREVO_API_KEY
             },
             body: JSON.stringify({
-                sender : { name: "Kevin Montano", email: "2022kevinmontano@gmail.com"},
-                to : [{email : "2022kevinmontano@gmail.com"}],
+                sender : { name: "Kevin Montano", email: import.meta.env.BREVO_SENDER_EMAIL},
+                to : [{email : "kevinmontanodev@gmail.com"}],
                 subject,
                 htmlContent : 
                          `<p><strong>Nombre:</strong> ${name}</p>
