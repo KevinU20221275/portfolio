@@ -1,0 +1,40 @@
+---
+import GalleryItem from "@ui/GalleryItem.astro";
+
+interface GalleryDimensions {
+    height: string;
+    cols: string;
+    rows: string;
+}
+
+interface GalleryItem {
+    tooltip: string;
+    image: string;
+    colsSpan: string;
+    rowsSpan: string;
+}
+
+interface Props {
+    galleryDimensions: GalleryDimensions;
+    galleryItems: GalleryItem[];
+}
+
+const { galleryDimensions, galleryItems } = Astro.props
+---
+<section class="py-8">
+    <h2 class="text-lg sm:text-xl text-light-accentSecondary dark:text-white font-extrabold text-center my-4">Gallery</h2>
+    <article class={`gallery grid gap-3 w-full`} 
+    style={`grid-template-columns: repeat(${galleryDimensions.cols}, minmax(0, 1fr)); grid-template-rows: repeat(${galleryDimensions.rows}, minmax(0, 1fr)); max-height: ${galleryDimensions.height};`}
+    >
+        {galleryItems.map((galleryItem) => (
+            <GalleryItem
+                text={galleryItem.tooltip}
+                image={galleryItem.image}
+                cols={galleryItem.colsSpan}
+                rows={galleryItem.rowsSpan}
+            />
+        ))}
+       
+    </article>
+</section>
+
