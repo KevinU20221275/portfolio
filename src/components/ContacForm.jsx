@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import { EmailModalMessage } from './ui/EmailModalMessage';
 
 export function ContactForm(){
   const [isSending, setIsSending] = useState(false)
