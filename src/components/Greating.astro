@@ -1,0 +1,139 @@
+---
+import  { basic } from '../../cv.json';
+import WorldMap from '@icons/WorldMap.astro'
+import Mail from '@icons/Mail.astro'
+import Phone from '@icons/Phone.astro'
+import GitHub from '@icons/Github.astro';
+import LinkedIn from '@icons/LinkedIn.astro'
+import SocialLink from '@ui/SocialLink.astro';
+
+const {name, label, email, phone, location, profiles} = basic
+
+const  {city, region} = location
+
+const SOCIAL_ICONS: Record<string, string | any> = {
+    "GitHub": GitHub,
+    "LinkedIn": LinkedIn,
+}
+---
+<section class="font-mono pt-16 flex justify-center items-start flex-col overflow-hidden">
+    <div class="flex items-center gap-2">
+        <img class="h-full rounded-full p-2" src="https://avatars.githubusercontent.com/u/138035161?s=96&v=4" alt="imagen de perfil de Kevin Montano"/>
+        <a class="available" href="https://www.linkedin.com/in/kevin-antonio-montano-aquino/" title="go to linkedIn profile"><span>Available to work</span></a>
+    </div>
+    <h1 class="title-name text-xl sm:text-3xl font-bold bg-gradient-to-r from-light-accent dark:from-dark-accent to-light-accentSecondary dark:to-dark-accentSecondary bg-clip-text text-transparent transition-all duration-500">Hi, I'm {name}</h1>
+    <h2 class="text-base sm:text-xl max-w-xl">I'm ready to put my skills to work and build unique websites.</h2>
+    <h3 class="text-light-textSecondary dark:text-dark-textSecondary text-sm sm:text-lg transition-all duration-500">{label}</h3>
+    <span class=".span-animated flex items-center text-sm sm:text-lg text-light-textLigth gap-2 dark:text-dark-textDarkLigth transition-all duration-500"><WorldMap/> {city}, {region}</span>
+    <footer class="flex gap-2 overflow-hidden">
+        {
+            email && 
+                <SocialLink href='#email-form' title={`Send an email to ${name} at ${email}`}>
+                    <Mail/>
+                </SocialLink>
+        }
+        {
+            phone && 
+                <SocialLink href={`tel:${phone}`} title={`Call ${name} at ${phone}`} target='_blank' >
+                    <Phone/>
+                </SocialLink>
+        }
+        {
+            profiles.map(({network, url, username}) => {
+                const Icon = SOCIAL_ICONS[network]
+                return(
+                    <SocialLink href={url} title={`Visit ${name} on ${network}`} target='_blank'>
+                        <Icon/>
+                    </SocialLink>
+                )
+            })
+        }
+    </footer>
+</section>
+
+
+<style>
+    .title-name {
+        animation: fadeIn 2s;
+    }
+
+    h3,.span-animated {
+        animation: appear 1.8s;
+    }
+
+    .available {
+        position: relative;
+        padding: .2rem;
+        display: flex;
+        border-radius: 1.4rem;
+        color: #fff;
+        transition: all 0.5s;
+        background-size: 400% 400%;
+        overflow: hidden;
+    }
+
+    .available > span {
+        background-color: #FFF;
+        color: #000;
+        position: relative;
+        width: 100%;
+        z-index: 20;
+        height: 100%;
+        display: inline;
+        padding: 0.3rem 1rem;
+        border-radius: 1.4rem;
+    }
+
+    .available:hover {
+        transform: scale(1.02);
+    }
+
+    .available::before {
+        content: '';
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        height: 400px;
+        background-image: conic-gradient(#5F6DE0, #1B1464, #5F6DE0, #1B1464, #5F6DE0);
+        z-index: 1;
+        transition: all 0.5s;
+        animation:spin 2s linear infinite;
+    }
+
+    body.dark .available::before {
+        background-image: conic-gradient(#7E4BC0, #F6D89D, #7E4BC0, #F6D89D, #7E4BC0);
+    }
+
+    body.dark .available span {
+        background-color: #02091B;
+        color: #FFF;
+    }
+
+    @keyframes appear {
+        from {
+            transform: translateX(1000px);
+            scale: 0;
+        }
+        to {
+            scale: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            transform: translateX(-500px);
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+
+    @keyframes spin {
+        0% { transform:translate(-50%, -50%) rotate(0deg); }
+        100% { transform:translate(-50%, -50%) rotate(360deg); }
+    }
+</style>
