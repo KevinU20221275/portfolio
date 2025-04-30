@@ -1,3 +1,11 @@
+---
+import { Header } from "../components/Header";
+import Footer from "../components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
+
+const {title} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +13,103 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<ClientRouter fallback="none" />
 	</head>
-	<body>
-		<slot />
+	<body class="dark">
+		<div class="max-w-6xl mx-auto relative dark:text-white">
+			<Header client:load />
+			<main class="w-full px-4">
+				<slot />
+			</main>
+			<Footer/>
+		</div>
 	</body>
 </html>
 
-<style>
+<style is:global>
 	html,
+	body.dark {
+		background: url('../assets/background.svg');
+		background-repeat: repeat;
+		background-size: cover;
+	}
+
 	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+		background: #FFFFFF;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	.grid-item {
+        animation: fadeIn 0.25s ease-in-out forwards;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            scale: 0.5;
+        }
+        to {
+            scale: 1;
+        }
+    }
+
+
+	@keyframes show {
+		from {
+			scale: 0;
+		} 
+		to {
+			scale: 1;
+		}
+	}
+
+	.nav__item {
+		position: relative;
+		z-index: 50;
+	}
+
+	.nav__link--bg {
+		width: 85px;
+		z-index: 10;
+		opacity: 0;
+		transition: transform .3s ease-in-out, opacity .15s ease-in;
+	}
+
+	.nav__item.nav__item--home:hover~.nav__link--bg {
+		width: 70px;
+	}
+
+	.nav__item.nav__item--next-project:hover~.nav__link--bg {
+		transform: translateX(70px) !important;
+		width: 115px;
+	}
+
+
+	.nav__item:hover ~ .nav__link--bg {
+		opacity: 1;
+	}
+
+	.nav__item:nth-child(1):hover~.nav__link--bg {
+		transform: translateX(0px);
+	}
+
+	.nav__item:nth-child(2):hover~.nav__link--bg {
+		transform: translateX(95px);
+	}
+
+	.nav__item:nth-child(3):hover~.nav__link--bg {
+		transform: translateX(180px);
+	}
+
+	.nav__item:nth-child(4):hover~.nav__link--bg {
+		transform: translateX(255px);
+	}
+
+	.nav__item--next-project:hover~.nav__link--bg {
+		transform: translateX(34px);
+		width: 105px;
 	}
 </style>
