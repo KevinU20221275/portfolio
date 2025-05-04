@@ -16,39 +16,48 @@ const SOCIAL_ICONS: Record<string, string | any> = {
     "LinkedIn": LinkedIn,
 }
 ---
-<section class="pt-16 flex justify-center items-start flex-col overflow-hidden">
-    <div class="flex items-center gap-2">
-        <img class="h-full rounded-full p-2" src={image} alt="imagen de perfil de Kevin Montano"/>
-        <a class="available" href="https://www.linkedin.com/in/kevin-antonio-montano-aquino/" title="go to linkedIn profile"><span>Available to work</span></a>
-    </div>
-    <h1 class="title-name text-xl sm:text-3xl font-bold bg-gradient-to-r from-light-accent dark:from-dark-accent to-light-accentSecondary dark:to-dark-accentSecondary bg-clip-text text-transparent transition-all duration-500">Hi, I'm {name}</h1>
-    <h2 class="text-base sm:text-xl max-w-xl">I'm ready to put my skills to work and build unique websites.</h2>
-    <h3 class="text-light-textSecondary dark:text-dark-textSecondary text-sm sm:text-lg transition-all duration-500">{label}</h3>
-    <span class=".span-animated flex items-center text-sm sm:text-lg text-light-textLigth gap-2 dark:text-dark-textDarkLigth transition-all duration-500"><WorldMap/> {city}, {region}</span>
-    <footer class="flex gap-2 overflow-hidden">
-        {
-            email && 
-                <SocialLink href='#email-form' title={`Send an email to ${name} at ${email}`}>
-                    <Mail/>
-                </SocialLink>
-        }
-        {
-            phone && 
-                <SocialLink href={`tel:${phone}`} title={`Call ${name} at ${phone}`} target='_blank' >
-                    <Phone/>
-                </SocialLink>
-        }
-        {
-            profiles.map(({network, url, username}) => {
-                const Icon = SOCIAL_ICONS[network]
-                return(
-                    <SocialLink href={url} title={`Visit ${name} on ${network}`} target='_blank'>
-                        <Icon/>
+<section class="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-16 overflow-hidden">
+    <article class="sm:col-span-2">
+        <div class="flex items-center gap-2">
+            <img class="h-full rounded-full p-2" src={image} alt="imagen de perfil de Kevin Montano"/>
+            <a class="available" href="https://www.linkedin.com/in/kevin-antonio-montano-aquino/" title="go to linkedIn profile"><span>Available to work</span></a>
+        </div>
+        <h1 class="title-name text-xl sm:text-3xl font-bold bg-gradient-to-r from-light-accent dark:from-dark-accent to-light-accentSecondary dark:to-dark-accentSecondary bg-clip-text text-transparent transition-all duration-500">Hi, I'm {name}</h1>
+        <h2 class="text-base sm:text-xl max-w-xl">I'm ready to put my skills to work and build unique websites.</h2>
+        <h3 class="text-light-textSecondary dark:text-dark-textSecondary text-sm sm:text-lg transition-all duration-500">{label}</h3>
+        <span class=".span-animated flex items-center text-sm sm:text-lg text-light-textLigth gap-2 dark:text-dark-textDarkLigth transition-all duration-500"><WorldMap/> {city}, {region}</span>
+        <footer class="flex gap-2 overflow-hidden">
+            {
+                email && 
+                    <SocialLink href='#email-form' title={`Send an email to ${name} at ${email}`}>
+                        <Mail/>
                     </SocialLink>
-                )
-            })
-        }
-    </footer>
+            }
+            {
+                phone && 
+                    <SocialLink href={`tel:${phone}`} title={`Call ${name} at ${phone}`} target='_blank' >
+                        <Phone/>
+                    </SocialLink>
+            }
+            {
+                profiles.map(({network, url, username}) => {
+                    const Icon = SOCIAL_ICONS[network]
+                    return(
+                        <SocialLink href={url} title={`Visit ${name} on ${network}`} target='_blank'>
+                            <Icon/>
+                        </SocialLink>
+                    )
+                })
+            }
+        </footer>
+    </article>
+    <article class="flex justify-center items-center sm:col-span-1 sm:justify-start">
+        <a 
+        href="/KevinMontano-En-CV.pdf" 
+        download
+        class="px-3 py-2 text-lg lg:text-xl text-white rounded-md animate-bounce bg-gradient-to-bl from-light-accentSecondary to-light-accent dark:from-dark-accentSecondary dark:to-dark-accent"
+        >Download CV</a>
+    </article>
 </section>
 
 
