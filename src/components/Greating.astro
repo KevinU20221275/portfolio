@@ -7,7 +7,7 @@ import GitHub from '@icons/Github.astro';
 import LinkedIn from '@icons/LinkedIn.astro'
 import SocialLink from '@ui/SocialLink.astro';
 
-const {name, label, email, phone, location, profiles} = basic
+const {name, label, email, phone, location, profiles, image} = basic
 
 const  {city, region} = location
 
@@ -18,7 +18,7 @@ const SOCIAL_ICONS: Record<string, string | any> = {
 ---
 <section class="pt-16 flex justify-center items-start flex-col overflow-hidden">
     <div class="flex items-center gap-2">
-        <img class="h-full rounded-full p-2" src="https://avatars.githubusercontent.com/u/138035161?s=96&v=4" alt="imagen de perfil de Kevin Montano"/>
+        <img class="h-full rounded-full p-2" src={image} alt="imagen de perfil de Kevin Montano"/>
         <a class="available" href="https://www.linkedin.com/in/kevin-antonio-montano-aquino/" title="go to linkedIn profile"><span>Available to work</span></a>
     </div>
     <h1 class="title-name text-xl sm:text-3xl font-bold bg-gradient-to-r from-light-accent dark:from-dark-accent to-light-accentSecondary dark:to-dark-accentSecondary bg-clip-text text-transparent transition-all duration-500">Hi, I'm {name}</h1>
